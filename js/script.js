@@ -45,7 +45,26 @@
           }, 1000);
         }
       
-        
+        // Nascondi i numeri e mostra gli input
+        function hideNumbersShowInputs() {
+          randomNumberElements.forEach(element => element.classList.add('d-none'));
+          inputElements.forEach(element => element.parentElement.classList.remove('d-none'));
+          goButton.classList.remove('d-none');
+        }
+      
+        // Verifica quanti numeri l'utente ha indovinato
+        function checkUserInputs() {
+          let correctCount = 0;
+          const userNumbers = inputElements.map(input => parseInt(input.value));
+      
+          userNumbers.forEach(userNumber => {
+            if (randomNumbers.includes(userNumber)) {
+              correctCount++;
+            }
+          });
+      
+          correctNumberElement.textContent = `Hai indovinato ${correctCount} numeri su 5!`;
+        }
       
         // Generazione dei numeri casuali all'inizio
         generateRandomNumbers();
