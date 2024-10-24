@@ -31,11 +31,29 @@
           });
         }
       
+        // Funzione per avviare il conto alla rovescia
+        function startCountdown() {
+          const countdown = setInterval(() => {
+            countdownElement.textContent = timer;
+            timer--;
+      
+            if (timer < 0) {
+              clearInterval(countdown);
+              countdownElement.textContent = "Tempo scaduto!";
+              hideNumbersShowInputs();
+            }
+          }, 1000);
+        }
+      
         
       
         // Generazione dei numeri casuali all'inizio
         generateRandomNumbers();
         
-        
+        // Inizia il conto alla rovescia
+        startCountdown();
+      
+        // Aggiungi il listener per il bottone "Conferma"
+        goButton.addEventListener('click', checkUserInputs);
       });
       
