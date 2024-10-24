@@ -21,5 +21,21 @@
         let randomNumbers = [];
         let timer = 30;
       
+        // Funzione per generare numeri casuali e visualizzarli nei tag <p>
+        function generateRandomNumbers() {
+          randomNumbers = [];
+          randomNumberElements.forEach((element, index) => {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            randomNumbers.push(randomNumber);
+            element.textContent = randomNumber;
+          });
+        }
+      
+        
+      
+        // Generazione dei numeri casuali all'inizio
+        generateRandomNumbers();
+        
+        
       });
       
